@@ -18,6 +18,9 @@ NIXL EPv2 · DeepEPv2 · NIXL EPv1
 
 Aggregate output throughput across all decode GPUs.
 
+<details>
+<summary>Results table</summary>
+
 | Concurrency | Backend | Output tokens/s ↑ | Median TTFT (s) ↓ | Median End-to-end Latency (s) ↓ |
 | :---: | :---: | :---: | :---: | :---: |
 | **16** | NIXL EPv2 | **766.34** | **0.278** | **21.34** |
@@ -27,6 +30,8 @@ Aggregate output throughput across all decode GPUs.
 | **1,024** | NIXL EPv1 | **21,175.79** | **0.682** | **47.63** |
 | **8,192** | NIXL EPv2 | **21,781.69** | **65.348** | **369.57** |
 | **8,192** | DeepEPv2 | **21,742.80** | **70.113** | **373.05** |
+
+</details>
 
 ### Multi-domain · 2 × 8
 
@@ -40,6 +45,9 @@ NIXL EPv2 · DeepEPv2 · NIXL EPv1
 
 Aggregate output throughput across all decode GPUs.
 
+<details>
+<summary>Results table</summary>
+
 | Concurrency | Backend | Output tokens/s ↑ | Median TTFT (s) ↓ | Median End-to-end Latency (s) ↓ |
 | :---: | :---: | :---: | :---: | :---: |
 | **16** | NIXL EPv2 | **667.07** | **0.378** | **24.50** |
@@ -47,6 +55,8 @@ Aggregate output throughput across all decode GPUs.
 | **1,024** | NIXL EPv2 | **21,085.07** | **1.903** | **48.43** |
 | **1,024** | DeepEPv2 | **18,219.38** | **2.681** | **55.21** |
 | **1,024** | NIXL EPv1 | **13,280.00** | **1.095** | **71.15** |
+
+</details>
 
 ### Multi-domain · 4 × 8
 
@@ -60,11 +70,16 @@ NIXL EPv2 · DeepEPv2 · NIXL EPv1
 
 Aggregate output throughput across all decode GPUs.
 
+<details>
+<summary>Results table</summary>
+
 | Concurrency | Backend | Output tokens/s ↑ | Median TTFT (s) ↓ | Median End-to-end Latency (s) ↓ |
 | :---: | :---: | :---: | :---: | :---: |
 | **16** | NIXL EPv2 | **625.33** | **0.427** | **26.14** |
 | **16** | DeepEPv2 | **570.01** | **0.524** | **28.67** |
 | **16** | NIXL EPv1 | **470.86** | **0.914** | **34.64** |
+
+</details>
 
 ## Experimental setup
 
