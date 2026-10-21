@@ -18,10 +18,13 @@ NIXL EPv2 · DeepEPv2 · NIXL EPv1
 ---
 config:
   theme: base
+  themeCSS: ".plot text { font-size: 16px !important; font-weight: 700; }"
   xyChart:
     width: 800
     height: 340
     titleFontSize: 24
+    showDataLabel: true
+    showDataLabelOutsideBar: true
     xAxis:
       labelFontSize: 14
     yAxis:
@@ -32,12 +35,14 @@ config:
   themeVariables:
     fontFamily: Arial, sans-serif
     xyChart:
-      plotColorPalette: "#76B900, #34432B, #B9C2B2"
+      plotColorPalette: "#00000000, #76B900, #34432B, #B9C2B2"
 ---
 xychart-beta
     title "Concurrency 16 · 1K/1K"
-    x-axis ["NIXL EPv2 · 766.34", "DeepEPv2 · 823.56", "NIXL EPv1 · 777.38"]
+    x-axis ["NIXL EPv2", "DeepEPv2", "NIXL EPv1"]
     y-axis "Output tokens/s" 0 --> 1000
+    %% Transparent line supplies the same measured values for Mermaid bar labels.
+    line [766.34, 823.56, 777.38]
     %% Zero entries position each colored series; only nonzero entries are measurements.
     bar [766.34, 0, 0]
     bar [0, 823.56, 0]
@@ -48,10 +53,13 @@ xychart-beta
 ---
 config:
   theme: base
+  themeCSS: ".plot text { font-size: 16px !important; font-weight: 700; }"
   xyChart:
     width: 800
     height: 340
     titleFontSize: 24
+    showDataLabel: true
+    showDataLabelOutsideBar: true
     xAxis:
       labelFontSize: 14
     yAxis:
@@ -62,12 +70,14 @@ config:
   themeVariables:
     fontFamily: Arial, sans-serif
     xyChart:
-      plotColorPalette: "#76B900, #B9C2B2"
+      plotColorPalette: "#00000000, #76B900, #B9C2B2"
 ---
 xychart-beta
     title "Concurrency 1,024 · 1K/1K"
-    x-axis ["NIXL EPv2 · 24,129.28", "NIXL EPv1 · 21,175.79"]
+    x-axis ["NIXL EPv2", "NIXL EPv1"]
     y-axis "Output tokens/s" 0 --> 30000
+    %% Transparent line supplies the same measured values for Mermaid bar labels.
+    line [24129.28, 21175.79]
     %% Zero entries position each colored series; only nonzero entries are measurements.
     bar [24129.28000, 0]
     bar [0, 21175.79000]
@@ -77,10 +87,13 @@ xychart-beta
 ---
 config:
   theme: base
+  themeCSS: ".plot text { font-size: 16px !important; font-weight: 700; }"
   xyChart:
     width: 800
     height: 340
     titleFontSize: 24
+    showDataLabel: true
+    showDataLabelOutsideBar: true
     xAxis:
       labelFontSize: 14
     yAxis:
@@ -91,12 +104,14 @@ config:
   themeVariables:
     fontFamily: Arial, sans-serif
     xyChart:
-      plotColorPalette: "#76B900, #34432B"
+      plotColorPalette: "#00000000, #76B900, #34432B"
 ---
 xychart-beta
     title "Concurrency 8,192 · 1K/1K"
-    x-axis ["NIXL EPv2 · 21,781.69", "DeepEPv2 · 21,742.80"]
+    x-axis ["NIXL EPv2", "DeepEPv2"]
     y-axis "Output tokens/s" 0 --> 28000
+    %% Transparent line supplies the same measured values for Mermaid bar labels.
+    line [21781.69, 21742.80]
     %% Zero entries position each colored series; only nonzero entries are measurements.
     bar [21781.69000, 0]
     bar [0, 21742.8000]
@@ -131,10 +146,13 @@ NIXL EPv2 · DeepEPv2 · NIXL EPv1
 ---
 config:
   theme: base
+  themeCSS: ".plot text { font-size: 16px !important; font-weight: 700; }"
   xyChart:
     width: 800
     height: 340
     titleFontSize: 24
+    showDataLabel: true
+    showDataLabelOutsideBar: true
     xAxis:
       labelFontSize: 14
     yAxis:
@@ -145,12 +163,14 @@ config:
   themeVariables:
     fontFamily: Arial, sans-serif
     xyChart:
-      plotColorPalette: "#76B900, #B9C2B2"
+      plotColorPalette: "#00000000, #76B900, #B9C2B2"
 ---
 xychart-beta
     title "Concurrency 16 · 1K/1K"
-    x-axis ["NIXL EPv2 · 667.07", "NIXL EPv1 · 534.80"]
+    x-axis ["NIXL EPv2", "NIXL EPv1"]
     y-axis "Output tokens/s" 0 --> 819
+    %% Transparent line supplies the same measured values for Mermaid bar labels.
+    line [667.07, 534.80]
     %% Zero entries position each colored series; only nonzero entries are measurements.
     bar [667.07, 0]
     bar [0, 534.80]
@@ -160,10 +180,13 @@ xychart-beta
 ---
 config:
   theme: base
+  themeCSS: ".plot text { font-size: 16px !important; font-weight: 700; }"
   xyChart:
     width: 800
     height: 340
     titleFontSize: 24
+    showDataLabel: true
+    showDataLabelOutsideBar: true
     xAxis:
       labelFontSize: 14
     yAxis:
@@ -174,12 +197,14 @@ config:
   themeVariables:
     fontFamily: Arial, sans-serif
     xyChart:
-      plotColorPalette: "#76B900, #34432B, #B9C2B2"
+      plotColorPalette: "#00000000, #76B900, #34432B, #B9C2B2"
 ---
 xychart-beta
     title "Concurrency 1,024 · 1K/1K"
-    x-axis ["NIXL EPv2 · 21,085.07", "DeepEPv2 · 18,219.38", "NIXL EPv1 · 13,280.00"]
+    x-axis ["NIXL EPv2", "DeepEPv2", "NIXL EPv1"]
     y-axis "Output tokens/s" 0 --> 26000
+    %% Transparent line supplies the same measured values for Mermaid bar labels.
+    line [21085.07, 18219.38, 13280.00]
     %% Zero entries position each colored series; only nonzero entries are measurements.
     bar [21085.07000, 0, 0]
     bar [0, 18219.38000, 0]
@@ -213,10 +238,13 @@ NIXL EPv2 · DeepEPv2 · NIXL EPv1
 ---
 config:
   theme: base
+  themeCSS: ".plot text { font-size: 16px !important; font-weight: 700; }"
   xyChart:
     width: 800
     height: 340
     titleFontSize: 24
+    showDataLabel: true
+    showDataLabelOutsideBar: true
     xAxis:
       labelFontSize: 14
     yAxis:
@@ -227,12 +255,14 @@ config:
   themeVariables:
     fontFamily: Arial, sans-serif
     xyChart:
-      plotColorPalette: "#76B900, #34432B, #B9C2B2"
+      plotColorPalette: "#00000000, #76B900, #34432B, #B9C2B2"
 ---
 xychart-beta
     title "Concurrency 16 · 1K/1K"
-    x-axis ["NIXL EPv2 · 625.33", "DeepEPv2 · 570.01", "NIXL EPv1 · 470.86"]
+    x-axis ["NIXL EPv2", "DeepEPv2", "NIXL EPv1"]
     y-axis "Output tokens/s" 0 --> 760
+    %% Transparent line supplies the same measured values for Mermaid bar labels.
+    line [625.33, 570.01, 470.86]
     %% Zero entries position each colored series; only nonzero entries are measurements.
     bar [625.33, 0, 0]
     bar [0, 570.01, 0]
