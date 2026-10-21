@@ -91,58 +91,10 @@ Aggregate output throughput across all decode GPUs.
 | Checkpoint | nvidia/DeepSeek-V4-Pro-NVFP4 |
 | Revision | 1449d1e641023406daf6b432361486c768aad740 |
 | Precision | NVFP4 expert weights and activations (W4A4, group size 16); mixed FP8 dense layers. |
-| Generation | Temperature 0; seed 42; MTP disabled. |
 
 </details>
 
-<details>
-<summary>Hardware and deployment</summary>
-
-| Setting | Value |
-| :--- | :--- |
-| GPU platform | GB200 |
-| Deployment | Disaggregated prefill and decode; one serving process per GPU. |
-| Interconnect | NVLink within each domain; RDMA between domains. |
-| Parallelism | EP8 · DPA enabled with 8 ranks · TP1 · PP1 |
-| Comparison | Backends run sequentially on the same allocation and GPU placement for each test. |
-
-</details>
-
-<details>
-<summary>Benchmark client · AIPerf</summary>
-
-| Setting | Value |
-| :--- | :--- |
-| Build | 0.13.0 · commit ed212eca0a57f5fd36a6c7747456b2aab6d5700d |
-| Workload | Fixed 1,024 input / 1,024 output tokens (1K/1K). |
-| Measurement | 600-second request generation, followed by completion of outstanding requests. |
-| Warmup | 32 requests at C16; 1,024 requests at C1,024; 8,192 requests at C8,192. Excluded from measurements. |
-
-</details>
-
-<details>
-<summary>Serving framework · Dynamo</summary>
-
-| Setting | Value |
-| :--- | :--- |
-| Build | 1.5.0 · commit b83b1d9304ebfc624709ac46db32b1b6f1ff1615 |
-| Routing | KV-aware router; session affinity disabled. |
-| Prefill / decode handoff | NixlConnector with GPU buffers transfers the KV cache. |
-
-</details>
-
-<details>
-<summary>Inference engine · vLLM</summary>
-
-| Setting | Value |
-| :--- | :--- |
-| Candidate build | 0.0.0+g2632c8c0e · commit 2632c8c0ee3da621587a8de0628d487327b88963 |
-| EP integration | NVFP4 dispatch support for NIXL EPv2; backend-specific CuTeDSL experts. |
-| KV cache | FP8 on GPU · block size 256 · context limit 3,072 tokens |
-| Memory utilization | 90% in prefill and decode |
-| Caching | Cross-request prefix caching and CPU KV offload disabled. |
-
-</details>
+Hardware: **GB200**.
 
 ## Configuration
 
