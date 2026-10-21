@@ -14,7 +14,80 @@
 
 NIXL EPv2 · DeepEPv2 · NIXL EPv1
 
-![Output-token throughput by backend and concurrency for Single domain · 1 × 16](assets/throughput-single-domain.svg)
+```mermaid
+---
+config:
+  theme: base
+  xyChart:
+    width: 800
+    height: 340
+    titleFontSize: 24
+    xAxis:
+      labelFontSize: 16
+    yAxis:
+      labelFontSize: 14
+      titleFontSize: 16
+  themeVariables:
+    fontFamily: Arial, sans-serif
+    xyChart:
+      plotColorPalette: "#76B900"
+---
+xychart-beta horizontal
+    title "Concurrency 16 · 1K/1K"
+    x-axis ["NIXL EPv2 · 766.34", "DeepEPv2 · 823.56", "NIXL EPv1 · 777.38"]
+    y-axis "Output tokens/s" 0 --> 1000
+    bar [766.34, 823.56, 777.38]
+```
+
+```mermaid
+---
+config:
+  theme: base
+  xyChart:
+    width: 800
+    height: 340
+    titleFontSize: 24
+    xAxis:
+      labelFontSize: 16
+    yAxis:
+      labelFontSize: 14
+      titleFontSize: 16
+  themeVariables:
+    fontFamily: Arial, sans-serif
+    xyChart:
+      plotColorPalette: "#76B900"
+---
+xychart-beta horizontal
+    title "Concurrency 1,024 · 1K/1K"
+    x-axis ["NIXL EPv2 · 24,129.28", "NIXL EPv1 · 21,175.79"]
+    y-axis "Output tokens/s (thousands)" 0 --> 30
+    bar [24.12928, 21.17579]
+```
+
+```mermaid
+---
+config:
+  theme: base
+  xyChart:
+    width: 800
+    height: 340
+    titleFontSize: 24
+    xAxis:
+      labelFontSize: 16
+    yAxis:
+      labelFontSize: 14
+      titleFontSize: 16
+  themeVariables:
+    fontFamily: Arial, sans-serif
+    xyChart:
+      plotColorPalette: "#76B900"
+---
+xychart-beta horizontal
+    title "Concurrency 8,192 · 1K/1K"
+    x-axis ["NIXL EPv2 · 21,781.69", "DeepEPv2 · 21,742.80"]
+    y-axis "Output tokens/s (thousands)" 0 --> 28
+    bar [21.78169, 21.7428]
+```
 
 Aggregate output throughput across all decode GPUs.
 
@@ -41,7 +114,55 @@ Each EP group spans the domains (4+4 GPUs) via RDMA.
 
 NIXL EPv2 · DeepEPv2 · NIXL EPv1
 
-![Output-token throughput by backend and concurrency for Multi-domain · 2 × 8](assets/throughput-two-domains.svg)
+```mermaid
+---
+config:
+  theme: base
+  xyChart:
+    width: 800
+    height: 340
+    titleFontSize: 24
+    xAxis:
+      labelFontSize: 16
+    yAxis:
+      labelFontSize: 14
+      titleFontSize: 16
+  themeVariables:
+    fontFamily: Arial, sans-serif
+    xyChart:
+      plotColorPalette: "#76B900"
+---
+xychart-beta horizontal
+    title "Concurrency 16 · 1K/1K"
+    x-axis ["NIXL EPv2 · 667.07", "NIXL EPv1 · 534.80"]
+    y-axis "Output tokens/s" 0 --> 819
+    bar [667.07, 534.80]
+```
+
+```mermaid
+---
+config:
+  theme: base
+  xyChart:
+    width: 800
+    height: 340
+    titleFontSize: 24
+    xAxis:
+      labelFontSize: 16
+    yAxis:
+      labelFontSize: 14
+      titleFontSize: 16
+  themeVariables:
+    fontFamily: Arial, sans-serif
+    xyChart:
+      plotColorPalette: "#76B900"
+---
+xychart-beta horizontal
+    title "Concurrency 1,024 · 1K/1K"
+    x-axis ["NIXL EPv2 · 21,085.07", "DeepEPv2 · 18,219.38", "NIXL EPv1 · 13,280.00"]
+    y-axis "Output tokens/s (thousands)" 0 --> 26
+    bar [21.08507, 18.21938, 13.28]
+```
 
 Aggregate output throughput across all decode GPUs.
 
@@ -66,7 +187,30 @@ Each EP group spans the domains (2+2+2+2 GPUs) via RDMA.
 
 NIXL EPv2 · DeepEPv2 · NIXL EPv1
 
-![Output-token throughput by backend and concurrency for Multi-domain · 4 × 8](assets/throughput-four-domains.svg)
+```mermaid
+---
+config:
+  theme: base
+  xyChart:
+    width: 800
+    height: 340
+    titleFontSize: 24
+    xAxis:
+      labelFontSize: 16
+    yAxis:
+      labelFontSize: 14
+      titleFontSize: 16
+  themeVariables:
+    fontFamily: Arial, sans-serif
+    xyChart:
+      plotColorPalette: "#76B900"
+---
+xychart-beta horizontal
+    title "Concurrency 16 · 1K/1K"
+    x-axis ["NIXL EPv2 · 625.33", "DeepEPv2 · 570.01", "NIXL EPv1 · 470.86"]
+    y-axis "Output tokens/s" 0 --> 760
+    bar [625.33, 570.01, 470.86]
+```
 
 Aggregate output throughput across all decode GPUs.
 
@@ -107,164 +251,6 @@ Hardware: **GB200**.
 | Multi-domain · 4 × 8 | 32 | 24 | 8 | 6 prefill + 2 decode | 3 × EP8 prefill + 1 × EP8 decode; 2 + 2 + 2 + 2 GPUs per group across domains |
 
 One serving process per GPU. Prefill and decode use separate eight-GPU EP groups. Communication uses NVLink within a domain and RDMA between domains.
-
-### Serving configuration
-
-<details>
-<summary>Single domain · 1 × 16 · C16 · 1K/1K</summary>
-
-| Setting | NIXL EPv2 | DeepEPv2 | NIXL EPv1 |
-| :--- | :---: | :---: | :---: |
-| Tensor parallelism (TP) | 1 | 1 | 1 |
-| Data-parallel attention (DPA) | On · 8 ranks | On · 8 ranks | On · 8 ranks |
-| Pipeline parallelism (PP) | 1 | 1 | 1 |
-| Serving processes per prefill GPU | 1 | 1 | 1 |
-| Serving processes per decode GPU | 1 | 1 | 1 |
-| Prefill max token batch / max sequences | 8,192 / 64 | 8,192 / 64 | 512 / 64 |
-| Decode max token batch / max sequences | 1,024 / 1,024 | 1,024 / 1,024 | 512 / 512 |
-| Prefill graph mode | Piecewise | Piecewise | Piecewise |
-| Prefill graph capture maximum (tokens) | 8,192 | 8,192 | 512 |
-| Decode graph mode | Full decode only | Full decode only | Full decode only |
-| Max token batch | 512 | 512 | 512 |
-| Decode stream interval | 50 | 50 | 50 |
-| Expert GEMM | FlashInferCuteDSLExperts | FlashInferCuteDSLExperts | FlashInferCuteDSLBatchedExperts; SwiGLU clamp10 |
-| Active SM count | 26 | 26 | Not configured |
-| Prefer overlap | On | On | Not applicable |
-| Zero-copy · prefill / decode | On / Off | Not applicable | Not applicable |
-| EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 | BF16 |
-| EP combine format | BF16 | BF16 | BF16 |
-
-</details>
-
-<details>
-<summary>Single domain · 1 × 16 · C1,024 · 1K/1K</summary>
-
-| Setting | NIXL EPv2 | NIXL EPv1 |
-| :--- | :---: | :---: |
-| Tensor parallelism (TP) | 1 | 1 |
-| Data-parallel attention (DPA) | On · 8 ranks | On · 8 ranks |
-| Pipeline parallelism (PP) | 1 | 1 |
-| Serving processes per prefill GPU | 1 | 1 |
-| Serving processes per decode GPU | 1 | 1 |
-| Prefill max token batch / max sequences | 8,192 / 64 | 512 / 64 |
-| Decode max token batch / max sequences | 1,024 / 1,024 | 512 / 512 |
-| Prefill graph mode | Piecewise | Piecewise |
-| Prefill graph capture maximum (tokens) | 8,192 | 512 |
-| Decode graph mode | Full decode only | Full decode only |
-| Max token batch | 1,024 | 512 |
-| Decode stream interval | 50 | 50 |
-| Expert GEMM | FlashInferCuteDSLExperts | FlashInferCuteDSLBatchedExperts; SwiGLU clamp10 |
-| Active SM count | 26 | Not configured |
-| Prefer overlap | On | Not applicable |
-| Zero-copy · prefill / decode | On / Off | Not applicable |
-| EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 |
-| EP combine format | BF16 | BF16 |
-
-</details>
-
-<details>
-<summary>Single domain · 1 × 16 · C8,192 · 1K/1K</summary>
-
-| Setting | NIXL EPv2 | DeepEPv2 |
-| :--- | :---: | :---: |
-| Tensor parallelism (TP) | 1 | 1 |
-| Data-parallel attention (DPA) | On · 8 ranks | On · 8 ranks |
-| Pipeline parallelism (PP) | 1 | 1 |
-| Serving processes per prefill GPU | 1 | 1 |
-| Serving processes per decode GPU | 1 | 1 |
-| Prefill max token batch / max sequences | 8,192 / 64 | 8,192 / 64 |
-| Decode max token batch / max sequences | 1,024 / 1,024 | 1,024 / 1,024 |
-| Prefill graph mode | Piecewise | Piecewise |
-| Prefill graph capture maximum (tokens) | 8,192 | 8,192 |
-| Decode graph mode | Full decode only | Full decode only |
-| Max token batch | 1,024 | 1,024 |
-| Decode stream interval | 50 | 50 |
-| Expert GEMM | FlashInferCuteDSLExperts | FlashInferCuteDSLExperts |
-| Active SM count | 26 | 26 |
-| Prefer overlap | On | On |
-| Zero-copy · prefill / decode | On / On | Not applicable |
-| EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 |
-| EP combine format | BF16 | BF16 |
-
-</details>
-
-<details>
-<summary>Multi-domain · 2 × 8 · C16 · 1K/1K</summary>
-
-| Setting | NIXL EPv2 | NIXL EPv1 |
-| :--- | :---: | :---: |
-| Tensor parallelism (TP) | 1 | 1 |
-| Data-parallel attention (DPA) | On · 8 ranks | On · 8 ranks |
-| Pipeline parallelism (PP) | 1 | 1 |
-| Serving processes per prefill GPU | 1 | 1 |
-| Serving processes per decode GPU | 1 | 1 |
-| Prefill max token batch / max sequences | 8,192 / 64 | 512 / 64 |
-| Decode max token batch / max sequences | 1,024 / 1,024 | 512 / 512 |
-| Prefill graph mode | Piecewise | Piecewise |
-| Prefill graph capture maximum (tokens) | 8,192 | 512 |
-| Decode graph mode | Full decode only | Full decode only |
-| Max token batch | 1,024 | 512 |
-| Decode stream interval | 50 | 50 |
-| Expert GEMM | FlashInferCuteDSLExperts | FlashInferCuteDSLBatchedExperts; SwiGLU clamp10 |
-| Active SM count | 26 | Not configured |
-| Prefer overlap | On | Not applicable |
-| Zero-copy · prefill / decode | Off / Off | Not applicable |
-| EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 |
-| EP combine format | BF16 | BF16 |
-
-</details>
-
-<details>
-<summary>Multi-domain · 2 × 8 · C1,024 · 1K/1K</summary>
-
-| Setting | NIXL EPv2 | DeepEPv2 | NIXL EPv1 |
-| :--- | :---: | :---: | :---: |
-| Tensor parallelism (TP) | 1 | 1 | 1 |
-| Data-parallel attention (DPA) | On · 8 ranks | On · 8 ranks | On · 8 ranks |
-| Pipeline parallelism (PP) | 1 | 1 | 1 |
-| Serving processes per prefill GPU | 1 | 1 | 1 |
-| Serving processes per decode GPU | 1 | 1 | 1 |
-| Prefill max token batch / max sequences | 8,192 / 64 | 8,192 / 64 | 512 / 64 |
-| Decode max token batch / max sequences | 1,024 / 1,024 | 1,024 / 1,024 | 512 / 512 |
-| Prefill graph mode | Piecewise | Piecewise | Piecewise |
-| Prefill graph capture maximum (tokens) | 8,192 | 8,192 | 512 |
-| Decode graph mode | Full decode only | Full decode only | Full decode only |
-| Max token batch | 1,024 | 1,024 | 512 |
-| Decode stream interval | 50 | 50 | 50 |
-| Expert GEMM | FlashInferCuteDSLExperts | FlashInferCuteDSLExperts | FlashInferCuteDSLBatchedExperts; SwiGLU clamp10 |
-| Active SM count | 26 | 26 | Not configured |
-| Prefer overlap | On | On | Not applicable |
-| Zero-copy · prefill / decode | Off / Off | Not applicable | Not applicable |
-| EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 | BF16 |
-| EP combine format | BF16 | BF16 | BF16 |
-
-</details>
-
-<details>
-<summary>Multi-domain · 4 × 8 · C16 · 1K/1K</summary>
-
-| Setting | NIXL EPv2 | DeepEPv2 | NIXL EPv1 |
-| :--- | :---: | :---: | :---: |
-| Tensor parallelism (TP) | 1 | 1 | 1 |
-| Data-parallel attention (DPA) | On · 8 ranks | On · 8 ranks | On · 8 ranks |
-| Pipeline parallelism (PP) | 1 | 1 | 1 |
-| Serving processes per prefill GPU | 1 | 1 | 1 |
-| Serving processes per decode GPU | 1 | 1 | 1 |
-| Prefill max token batch / max sequences | 8,192 / 64 | 8,192 / 64 | 512 / 64 |
-| Decode max token batch / max sequences | 1,024 / 1,024 | 1,024 / 1,024 | 512 / 512 |
-| Prefill graph mode | Piecewise | Piecewise | Piecewise |
-| Prefill graph capture maximum (tokens) | 8,192 | 8,192 | 512 |
-| Decode graph mode | Full decode only | Full decode only | Full decode only |
-| Max token batch | 512 | 512 | 512 |
-| Decode stream interval | 50 | 50 | 50 |
-| Expert GEMM | FlashInferCuteDSLExperts | FlashInferCuteDSLExperts | FlashInferCuteDSLBatchedExperts; SwiGLU clamp10 |
-| Active SM count | 26 | 26 | Not configured |
-| Prefer overlap | On | On | Not applicable |
-| Zero-copy · prefill / decode | Off / Off | Not applicable | Not applicable |
-| EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 | BF16 |
-| EP combine format | BF16 | BF16 | BF16 |
-
-</details>
 
 ## Single-domain samples
 
@@ -330,12 +316,7 @@ Requests: 464 · Errors: 0 · Duration: 611.20 s, including drain.
 | EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 | BF16 |
 | EP combine format | BF16 | BF16 | BF16 |
 
-<details>
-<summary>GPU distribution and EP groups</summary>
-
 **16 GPUs · 1 NVLink domain · Prefill: 1 × EP8 · Decode: 1 × EP8**
-
-</details>
 
 </details>
 
@@ -389,12 +370,7 @@ Requests: 13,312 · Errors: 0 · Duration: 643.73 s, including drain.
 | EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 |
 | EP combine format | BF16 | BF16 |
 
-<details>
-<summary>GPU distribution and EP groups</summary>
-
 **16 GPUs · 1 NVLink domain · Prefill: 1 × EP8 · Decode: 1 × EP8**
-
-</details>
 
 </details>
 
@@ -448,12 +424,7 @@ Requests: 16,749 · Errors: 0 · Duration: 788.81 s, including drain.
 | EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 |
 | EP combine format | BF16 | BF16 |
 
-<details>
-<summary>GPU distribution and EP groups</summary>
-
 **16 GPUs · 1 NVLink domain · Prefill: 1 × EP8 · Decode: 1 × EP8**
-
-</details>
 
 </details>
 
@@ -509,14 +480,9 @@ Requests: 320 · Errors: 0 · Duration: 612.71 s, including drain.
 | EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 |
 | EP combine format | BF16 | BF16 |
 
-<details>
-<summary>GPU distribution and EP groups</summary>
-
 **16 GPUs · 2 NVLink domains · Prefill: 1 × EP8 · Decode: 1 × EP8**
 
 Each EP group spans the domains (4+4 GPUs) via RDMA.
-
-</details>
 
 </details>
 
@@ -639,14 +605,9 @@ KV-cache pool occupancy peaked at 53.28% across the exported engine summaries. T
 | EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 | BF16 |
 | EP combine format | BF16 | BF16 | BF16 |
 
-<details>
-<summary>GPU distribution and EP groups</summary>
-
 **16 GPUs · 2 NVLink domains · Prefill: 1 × EP8 · Decode: 1 × EP8**
 
 Each EP group spans the domains (4+4 GPUs) via RDMA.
-
-</details>
 
 </details>
 
@@ -712,14 +673,9 @@ Requests: 288 · Errors: 0 · Duration: 626.32 s, including drain.
 | EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 | BF16 |
 | EP combine format | BF16 | BF16 | BF16 |
 
-<details>
-<summary>GPU distribution and EP groups</summary>
-
 **32 GPUs · 4 NVLink domains · Prefill: 3 × EP8 · Decode: 1 × EP8**
 
 Each EP group spans the domains (2+2+2+2 GPUs) via RDMA.
-
-</details>
 
 </details>
 
