@@ -3778,22 +3778,4 @@ Each EP group spans the domains (2+2+2+2 GPUs) via RDMA.
 
 </details>
 
-<details>
-<summary>Methodology</summary>
-
-Backends within each deployment, workload and concurrency run sequentially in one allocation. Warmup is excluded from the results.
-
-Requests are generated for 600 seconds, followed by completion of outstanding requests. Throughput is total generated output tokens divided by elapsed measurement time, including drain, aggregated across all decode GPUs. TTFT and request latency are client-measured medians.
-
-Charts show completed measurements. An absent backend has no measurement for that test.
-
-</details>
-
-<details>
-<summary>Measurement notes</summary>
-
-NIXL EPv1 at 1×16, concurrency 16 has incomplete instrumentation. NIXL EPv2 and DeepEPv2 at 1×16, concurrency 8,192 did not meet all supplementary measurement checks. These workloads completed without request errors; the reported values are their client measurements.
-
-</details>
-
 Generated 2026-10-21 18:47 UTC
