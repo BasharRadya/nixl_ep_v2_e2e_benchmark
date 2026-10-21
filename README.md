@@ -100,7 +100,7 @@ Aggregate output throughput across all decode GPUs.
 
 | Setting | Value |
 | :--- | :--- |
-| Allocation per node | 4 GPUs · 128 requested CPU cores |
+| GPU platform | GB200 |
 | Deployment | Disaggregated prefill and decode; one serving process per GPU. |
 | Interconnect | NVLink within each domain; RDMA between domains. |
 | Parallelism | EP8 · DPA enabled with 8 ranks · TP1 · PP1 |
