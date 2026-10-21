@@ -23,20 +23,25 @@ config:
     height: 340
     titleFontSize: 24
     xAxis:
-      labelFontSize: 16
+      labelFontSize: 14
     yAxis:
+      showLabel: false
+      showTick: false
       labelFontSize: 14
       titleFontSize: 16
   themeVariables:
     fontFamily: Arial, sans-serif
     xyChart:
-      plotColorPalette: "#76B900"
+      plotColorPalette: "#76B900, #34432B, #B9C2B2"
 ---
-xychart-beta horizontal
+xychart-beta
     title "Concurrency 16 · 1K/1K"
     x-axis ["NIXL EPv2 · 766.34", "DeepEPv2 · 823.56", "NIXL EPv1 · 777.38"]
     y-axis "Output tokens/s" 0 --> 1000
-    bar [766.34, 823.56, 777.38]
+    %% Zero entries position each colored series; only nonzero entries are measurements.
+    bar [766.34, 0, 0]
+    bar [0, 823.56, 0]
+    bar [0, 0, 777.38]
 ```
 
 ```mermaid
@@ -48,20 +53,24 @@ config:
     height: 340
     titleFontSize: 24
     xAxis:
-      labelFontSize: 16
+      labelFontSize: 14
     yAxis:
+      showLabel: false
+      showTick: false
       labelFontSize: 14
       titleFontSize: 16
   themeVariables:
     fontFamily: Arial, sans-serif
     xyChart:
-      plotColorPalette: "#76B900"
+      plotColorPalette: "#76B900, #B9C2B2"
 ---
-xychart-beta horizontal
+xychart-beta
     title "Concurrency 1,024 · 1K/1K"
     x-axis ["NIXL EPv2 · 24,129.28", "NIXL EPv1 · 21,175.79"]
-    y-axis "Output tokens/s (thousands)" 0 --> 30
-    bar [24.12928, 21.17579]
+    y-axis "Output tokens/s" 0 --> 30000
+    %% Zero entries position each colored series; only nonzero entries are measurements.
+    bar [24129.28000, 0]
+    bar [0, 21175.79000]
 ```
 
 ```mermaid
@@ -73,20 +82,24 @@ config:
     height: 340
     titleFontSize: 24
     xAxis:
-      labelFontSize: 16
+      labelFontSize: 14
     yAxis:
+      showLabel: false
+      showTick: false
       labelFontSize: 14
       titleFontSize: 16
   themeVariables:
     fontFamily: Arial, sans-serif
     xyChart:
-      plotColorPalette: "#76B900"
+      plotColorPalette: "#76B900, #34432B"
 ---
-xychart-beta horizontal
+xychart-beta
     title "Concurrency 8,192 · 1K/1K"
     x-axis ["NIXL EPv2 · 21,781.69", "DeepEPv2 · 21,742.80"]
-    y-axis "Output tokens/s (thousands)" 0 --> 28
-    bar [21.78169, 21.7428]
+    y-axis "Output tokens/s" 0 --> 28000
+    %% Zero entries position each colored series; only nonzero entries are measurements.
+    bar [21781.69000, 0]
+    bar [0, 21742.8000]
 ```
 
 Aggregate output throughput across all decode GPUs.
@@ -123,20 +136,24 @@ config:
     height: 340
     titleFontSize: 24
     xAxis:
-      labelFontSize: 16
+      labelFontSize: 14
     yAxis:
+      showLabel: false
+      showTick: false
       labelFontSize: 14
       titleFontSize: 16
   themeVariables:
     fontFamily: Arial, sans-serif
     xyChart:
-      plotColorPalette: "#76B900"
+      plotColorPalette: "#76B900, #B9C2B2"
 ---
-xychart-beta horizontal
+xychart-beta
     title "Concurrency 16 · 1K/1K"
     x-axis ["NIXL EPv2 · 667.07", "NIXL EPv1 · 534.80"]
     y-axis "Output tokens/s" 0 --> 819
-    bar [667.07, 534.80]
+    %% Zero entries position each colored series; only nonzero entries are measurements.
+    bar [667.07, 0]
+    bar [0, 534.80]
 ```
 
 ```mermaid
@@ -148,20 +165,25 @@ config:
     height: 340
     titleFontSize: 24
     xAxis:
-      labelFontSize: 16
+      labelFontSize: 14
     yAxis:
+      showLabel: false
+      showTick: false
       labelFontSize: 14
       titleFontSize: 16
   themeVariables:
     fontFamily: Arial, sans-serif
     xyChart:
-      plotColorPalette: "#76B900"
+      plotColorPalette: "#76B900, #34432B, #B9C2B2"
 ---
-xychart-beta horizontal
+xychart-beta
     title "Concurrency 1,024 · 1K/1K"
     x-axis ["NIXL EPv2 · 21,085.07", "DeepEPv2 · 18,219.38", "NIXL EPv1 · 13,280.00"]
-    y-axis "Output tokens/s (thousands)" 0 --> 26
-    bar [21.08507, 18.21938, 13.28]
+    y-axis "Output tokens/s" 0 --> 26000
+    %% Zero entries position each colored series; only nonzero entries are measurements.
+    bar [21085.07000, 0, 0]
+    bar [0, 18219.38000, 0]
+    bar [0, 0, 13280.00]
 ```
 
 Aggregate output throughput across all decode GPUs.
@@ -196,20 +218,25 @@ config:
     height: 340
     titleFontSize: 24
     xAxis:
-      labelFontSize: 16
+      labelFontSize: 14
     yAxis:
+      showLabel: false
+      showTick: false
       labelFontSize: 14
       titleFontSize: 16
   themeVariables:
     fontFamily: Arial, sans-serif
     xyChart:
-      plotColorPalette: "#76B900"
+      plotColorPalette: "#76B900, #34432B, #B9C2B2"
 ---
-xychart-beta horizontal
+xychart-beta
     title "Concurrency 16 · 1K/1K"
     x-axis ["NIXL EPv2 · 625.33", "DeepEPv2 · 570.01", "NIXL EPv1 · 470.86"]
     y-axis "Output tokens/s" 0 --> 760
-    bar [625.33, 570.01, 470.86]
+    %% Zero entries position each colored series; only nonzero entries are measurements.
+    bar [625.33, 0, 0]
+    bar [0, 570.01, 0]
+    bar [0, 0, 470.86]
 ```
 
 Aggregate output throughput across all decode GPUs.
@@ -295,6 +322,8 @@ Requests: 464 · Errors: 0 · Duration: 611.20 s, including drain.
 
 16 GPUs · 1 NVLink domain · Prefill: 1 × EP8 · Decode: 1 × EP8
 
+**NIXL EPv1 batch limit:** 512 tokens for prefill and decode. Its larger communication buffers make the 8,192-token prefill batch used by the other backends impractical due to GPU out-of-memory risk.
+
 | Setting | NIXL EPv2 | DeepEPv2 | NIXL EPv1 |
 | :--- | :---: | :---: | :---: |
 | Tensor parallelism (TP) | 1 | 1 | 1 |
@@ -348,6 +377,8 @@ Requests: 13,312 · Errors: 0 · Duration: 643.73 s, including drain.
 **EP wire format, prefill and decode:** dispatch BF16; combine BF16. Received BF16 activations are quantized locally to NVFP4 for expert GEMM.
 
 16 GPUs · 1 NVLink domain · Prefill: 1 × EP8 · Decode: 1 × EP8
+
+**NIXL EPv1 batch limit:** 512 tokens for prefill and decode. Its larger communication buffers make the 8,192-token prefill batch used by the other backends impractical due to GPU out-of-memory risk.
 
 | Setting | NIXL EPv2 | NIXL EPv1 |
 | :--- | :---: | :---: |
@@ -458,6 +489,8 @@ Requests: 320 · Errors: 0 · Duration: 612.71 s, including drain.
 **EP wire format, prefill and decode:** dispatch BF16; combine BF16. Received BF16 activations are quantized locally to NVFP4 for expert GEMM.
 
 16 GPUs · 2 NVLink domains · Prefill: 1 × EP8 · Decode: 1 × EP8
+
+**NIXL EPv1 batch limit:** 512 tokens for prefill and decode. Its larger communication buffers make the 8,192-token prefill batch used by the other backends impractical due to GPU out-of-memory risk.
 
 | Setting | NIXL EPv2 | NIXL EPv1 |
 | :--- | :---: | :---: |
@@ -584,6 +617,8 @@ KV-cache pool occupancy peaked at 53.28% across the exported engine summaries. T
 
 16 GPUs · 2 NVLink domains · Prefill: 1 × EP8 · Decode: 1 × EP8
 
+**NIXL EPv1 batch limit:** 512 tokens for prefill and decode. Its larger communication buffers make the 8,192-token prefill batch used by the other backends impractical due to GPU out-of-memory risk.
+
 | Setting | NIXL EPv2 | DeepEPv2 | NIXL EPv1 |
 | :--- | :---: | :---: | :---: |
 | Tensor parallelism (TP) | 1 | 1 | 1 |
@@ -651,6 +686,8 @@ Requests: 288 · Errors: 0 · Duration: 626.32 s, including drain.
 **EP wire format, prefill and decode:** dispatch BF16; combine BF16. Received BF16 activations are quantized locally to NVFP4 for expert GEMM.
 
 32 GPUs · 4 NVLink domains · Prefill: 3 × EP8 · Decode: 1 × EP8
+
+**NIXL EPv1 batch limit:** 512 tokens for prefill and decode. Its larger communication buffers make the 8,192-token prefill batch used by the other backends impractical due to GPU out-of-memory risk.
 
 | Setting | NIXL EPv2 | DeepEPv2 | NIXL EPv1 |
 | :--- | :---: | :---: | :---: |
