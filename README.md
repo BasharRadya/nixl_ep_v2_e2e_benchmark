@@ -2,8 +2,6 @@
 
 3 deployments · 15 samples
 
-[Interactive HTML report](report.html)
-
 ## Contents
 
 [Results](#results) · [Experimental setup](#experimental-setup) · [Configuration](#configuration) · [Single-domain samples](#single-domain-samples) · [Multi-domain samples](#multi-domain-samples)
@@ -145,7 +143,8 @@ One serving process per GPU. Prefill and decode use separate eight-GPU EP groups
 
 ### Serving configuration
 
-#### Single domain · 1 × 16 · C16 · 1K/1K
+<details>
+<summary>Single domain · 1 × 16 · C16 · 1K/1K</summary>
 
 | Setting | NIXL EPv2 | DeepEPv2 | NIXL EPv1 |
 | :--- | :---: | :---: | :---: |
@@ -168,7 +167,10 @@ One serving process per GPU. Prefill and decode use separate eight-GPU EP groups
 | EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 | BF16 |
 | EP combine format | BF16 | BF16 | BF16 |
 
-#### Single domain · 1 × 16 · C1,024 · 1K/1K
+</details>
+
+<details>
+<summary>Single domain · 1 × 16 · C1,024 · 1K/1K</summary>
 
 | Setting | NIXL EPv2 | NIXL EPv1 |
 | :--- | :---: | :---: |
@@ -191,7 +193,10 @@ One serving process per GPU. Prefill and decode use separate eight-GPU EP groups
 | EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 |
 | EP combine format | BF16 | BF16 |
 
-#### Single domain · 1 × 16 · C8,192 · 1K/1K
+</details>
+
+<details>
+<summary>Single domain · 1 × 16 · C8,192 · 1K/1K</summary>
 
 | Setting | NIXL EPv2 | DeepEPv2 |
 | :--- | :---: | :---: |
@@ -214,7 +219,10 @@ One serving process per GPU. Prefill and decode use separate eight-GPU EP groups
 | EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 |
 | EP combine format | BF16 | BF16 |
 
-#### Multi-domain · 2 × 8 · C16 · 1K/1K
+</details>
+
+<details>
+<summary>Multi-domain · 2 × 8 · C16 · 1K/1K</summary>
 
 | Setting | NIXL EPv2 | NIXL EPv1 |
 | :--- | :---: | :---: |
@@ -237,7 +245,10 @@ One serving process per GPU. Prefill and decode use separate eight-GPU EP groups
 | EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 |
 | EP combine format | BF16 | BF16 |
 
-#### Multi-domain · 2 × 8 · C1,024 · 1K/1K
+</details>
+
+<details>
+<summary>Multi-domain · 2 × 8 · C1,024 · 1K/1K</summary>
 
 | Setting | NIXL EPv2 | DeepEPv2 | NIXL EPv1 |
 | :--- | :---: | :---: | :---: |
@@ -260,7 +271,10 @@ One serving process per GPU. Prefill and decode use separate eight-GPU EP groups
 | EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 | BF16 |
 | EP combine format | BF16 | BF16 | BF16 |
 
-#### Multi-domain · 4 × 8 · C16 · 1K/1K
+</details>
+
+<details>
+<summary>Multi-domain · 4 × 8 · C16 · 1K/1K</summary>
 
 | Setting | NIXL EPv2 | DeepEPv2 | NIXL EPv1 |
 | :--- | :---: | :---: | :---: |
@@ -282,6 +296,8 @@ One serving process per GPU. Prefill and decode use separate eight-GPU EP groups
 | Zero-copy · prefill / decode | Off / Off | Not applicable | Not applicable |
 | EP dispatch format | NVFP4 + FP8 E4M3 scales | BF16 | BF16 |
 | EP combine format | BF16 | BF16 | BF16 |
+
+</details>
 
 ## Single-domain samples
 
